@@ -48,10 +48,10 @@ def user_session_exceeded(user_id):
 def verification_function_call(call):
     user_id = call.from_user.id
 
-    # token_data = create_new_token()
-    # expires_at = time.time() + token_data['expires_in']
-    # if expires_at < time.time():
-    #     create_new_token()
+    token_data = create_new_token()
+    expires_at = time.time() + token_data['expires_in']
+    if expires_at < time.time():
+        create_new_token()
 
     if user_id not in user_data:
         bot.send_message(call.message.chat.id, "Ой, упс, о вас нет данных. Вернитесь и укажите снова параметры(")
@@ -74,10 +74,10 @@ def verification_function_call(call):
 def verification_function_message(message):
     user_id = message.from_user.id
 
-    # token_data = create_new_token()
-    # expires_at = time.time() + token_data['expires_in']
-    # if expires_at < time.time():
-    #     create_new_token()
+    token_data = create_new_token()
+    expires_at = time.time() + token_data['expires_in']
+    if expires_at < time.time():
+        create_new_token()
 
     if user_id not in user_data:
         bot.send_message(message.chat.id, "Ой, упс, о вас нет данных. Вернитесь и укажите снова параметры(")
